@@ -1,8 +1,7 @@
 function! s:isAnsible()
   " Bail out if 'filetype' is already set to "ansible".
-  if index(split(&ft, '\.'), 'ansible') != -1
-    return 1 | en
-  endif
+  if index(split(&ft, '\.'), 'ansible') != -1 | return 1 | en
+  
   let filepath = expand("%:p")
   let filename = expand("%:t")
   if filepath =~ '\v/(tasks|roles|handlers)/.*\.ya?ml$' | return 1 | en
